@@ -12,7 +12,7 @@ import {
     ListItemText,
     useColorScheme,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images/DR_transparent.png";
 import { DarkMode } from "@mui/icons-material";
@@ -28,12 +28,19 @@ const navItems = [
 
 const NavigationBar = ({ window, theme }) => {
     const navigate = useNavigate();
-    const { mode, setMode } = useColorScheme();
+    const { mode, setMode, systemMode } = useColorScheme();
 
     const [mobileOpen, setMobileOpen] = useState(false);
 
+    useEffect(() => {
+        if (mode === "system") {
+            if (systemMode === "light") setMode("light");
+            if (systemMode === "dark") setMode("dark");
+        }
+    }, [mode, setMode, systemMode]);
+
     const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
+        setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
@@ -101,7 +108,7 @@ const NavigationBar = ({ window, theme }) => {
     return (
         <>
             <Grid2 container pt={3}>
-                <Grid2 size="auto" offset={{ xs: 2, sm: 2 }}>
+                <Grid2 size="auto" offset={{ xs: 1, md: 1.5, lg: 2 }}>
                     <img
                         className="navbar-logo"
                         src={logo}
@@ -112,7 +119,7 @@ const NavigationBar = ({ window, theme }) => {
                 </Grid2>
                 <Grid2
                     size="auto"
-                    offset={{ sm: 1.5 }}
+                    offset={{ sm: 0.5, md: 1, lg: 1.5 }}
                     display={{ xs: "none", sm: "block" }}
                 >
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -149,7 +156,7 @@ const NavigationBar = ({ window, theme }) => {
                 </Grid2>
                 <Grid2
                     size="auto"
-                    offset={{ sm: 2 }}
+                    offset={{ md: 0.5, lg: 2 }}
                     padding={2}
                     display={{ xs: "none", sm: "block" }}
                 >
@@ -176,7 +183,7 @@ const NavigationBar = ({ window, theme }) => {
                 </Grid2>
                 <Grid2
                     size="auto"
-                    offset={{ xs: 5 }}
+                    offset={{ xs: 7 }}
                     padding={2}
                     display={{ sm: "none" }}
                 >

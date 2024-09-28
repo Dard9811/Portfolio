@@ -7,9 +7,11 @@ const Home = ({ theme }) => {
                 {/* This is for computer view */}
                 <Grid2
                     size="auto"
-                    offset={{ sm: 3.5 }}
+                    offset={{ sm: 2, md: 3, lg: 3.5 }}
                     display={{ xs: "none", sm: "block" }}
-                    sx={{ mt: 20 }}
+                    sx={{
+                        my: 20,
+                    }}
                 >
                     <Typography color="primary" variant="h1" component="h1">
                         Daniel Ramirez
@@ -24,9 +26,9 @@ const Home = ({ theme }) => {
                 {/* This is for mobile view */}
                 <Grid2
                     size="auto"
-                    offset={{ xs: 1.2 }}
+                    offset={{ xs: 1.6 }}
                     display={{ sm: "none" }}
-                    sx={{ mt: 40 }}
+                    sx={{ mt: 35 }}
                 >
                     <Typography
                         color="primary"
