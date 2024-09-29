@@ -1,6 +1,11 @@
+/* 
+    File name: Projects.jsx
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import { Box, Chip, Grid2, Grow, Typography } from "@mui/material";
-import SYSplusCloudProject from "../../images/SYSplusCloudProject.png";
-import CRMProject from "../../images/CRMProject.png";
+import SYSplusCloudProject from "../../assets/images/SYSplusCloudProject.png";
+import CRMProject from "../../assets/images/CRMProject.png";
 
 const Projects = () => {
     const imageWidth = 400;
@@ -12,9 +17,18 @@ const Projects = () => {
                 alignItems="center"
                 justifyContent={"center"}
             >
-                <Box display={"block"}>
-                    <Grid2 size={12}>
+                {/* This is for computer view */}
+                <Box display={{ xs: "none", sm: "block" }}>
+                    <Grid2 size={{ xs: 11, sm: 12 }} offset={{ xs: 0.6 }}>
                         <Typography color="primary" variant="h3">
+                            What I've been up to!
+                        </Typography>
+                    </Grid2>
+                </Box>
+                {/* This is for mobile view */}
+                <Box display={{ xs: "block", sm: "none" }}>
+                    <Grid2 size={{ xs: 12, sm: 12 }}>
+                        <Typography color="primary" variant="h4">
                             What I've been up to!
                         </Typography>
                     </Grid2>

@@ -1,3 +1,8 @@
+/* 
+    File name: Views.jsx
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import { Navigate, Route, Routes } from "react-router-dom";
 import NavigationBar from "../components/layout/NavigationBar";
 import Home from "./Home/Home";
@@ -14,7 +19,7 @@ const Views = () => {
     return (
         <>
             <NavigationBar theme={theme}></NavigationBar>
-            <Box mt={2}>
+            <Box my={2}>
                 <Routes>
                     <Route path="home" element={<Home theme={theme} />} />
                     <Route path="about" element={<About theme={theme} />} />

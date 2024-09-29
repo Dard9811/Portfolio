@@ -1,5 +1,9 @@
+/* 
+    File name: App.js
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Views from "./views/Views";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 

@@ -1,3 +1,8 @@
+/* 
+    File name: NavigationBar.jsx
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import MenuIcon from "@mui/icons-material/Menu";
 import {
     Box,
@@ -14,8 +19,8 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../images/DR_transparent.png";
 import { DarkMode } from "@mui/icons-material";
+import { DRSVG } from "../../assets/svg/DR";
 
 const drawerWidth = 240;
 const navItems = [
@@ -52,7 +57,7 @@ const NavigationBar = ({ window, theme }) => {
                 color: theme.palette.primary,
             }}
         >
-            <img src={logo} alt="logo" width={50} style={{ padding: 10 }} />
+            <DRSVG size={80} color={theme.palette.primary.main}></DRSVG>
 
             <List>
                 {navItems.map((item) => (
@@ -109,13 +114,12 @@ const NavigationBar = ({ window, theme }) => {
         <>
             <Grid2 container pt={3}>
                 <Grid2 size="auto" offset={{ xs: 1, md: 1.5, lg: 2 }}>
-                    <img
-                        className="navbar-logo"
-                        src={logo}
-                        alt="logo"
-                        width={50}
-                        style={{ paddingTop: 10 }}
-                    />
+                    <Grid2 size={12} mt={1}>
+                        <DRSVG
+                            size={60}
+                            color={theme.palette.primary.main}
+                        ></DRSVG>
+                    </Grid2>
                 </Grid2>
                 <Grid2
                     size="auto"

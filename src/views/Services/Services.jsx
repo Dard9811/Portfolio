@@ -1,3 +1,8 @@
+/* 
+    File name: Services.jsx
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import { Box, Chip, Divider, Grid2, Typography } from "@mui/material";
 import { DiMysql } from "react-icons/di";
 import { FaAngular, FaAws, FaDocker, FaNodeJs, FaReact } from "react-icons/fa";
@@ -13,9 +18,18 @@ const Services = ({ theme }) => {
                 alignItems="center"
                 justifyContent={"center"}
             >
-                <Box display={"block"}>
-                    <Grid2 size={12}>
+                {/* This is for computer view */}
+                <Box display={{ xs: "none", sm: "block" }}>
+                    <Grid2 size={{ xs: 11, sm: 12 }} offset={{ xs: 0.6 }}>
                         <Typography color="primary" variant="h3">
+                            My areas of expertise!
+                        </Typography>
+                    </Grid2>
+                </Box>
+                {/* This is for mobile view */}
+                <Box display={{ xs: "block", sm: "none" }}>
+                    <Grid2 size={{ xs: 12, sm: 12 }}>
+                        <Typography color="primary" variant="h4">
                             My areas of expertise!
                         </Typography>
                     </Grid2>
@@ -77,7 +91,7 @@ const Services = ({ theme }) => {
                                         }
                                     ></Chip>
                                     <Chip
-                                        sx={{ ml: 1 }}
+                                        sx={{ my: 1 }}
                                         color="info"
                                         label={
                                             <Typography variant="body1">
@@ -86,7 +100,7 @@ const Services = ({ theme }) => {
                                         }
                                     ></Chip>
                                     <Chip
-                                        sx={{ ml: 1 }}
+                                        sx={{ my: 1 }}
                                         color="info"
                                         label={
                                             <Typography variant="body1">
@@ -138,7 +152,7 @@ const Services = ({ theme }) => {
                                         }
                                     ></Chip>
                                     <Chip
-                                        sx={{ ml: 1 }}
+                                        sx={{ my: 1 }}
                                         color="info"
                                         label={
                                             <Typography variant="body1">
@@ -166,7 +180,7 @@ const Services = ({ theme }) => {
                                         }
                                     ></Chip>
                                     <Chip
-                                        sx={{ ml: 1 }}
+                                        sx={{ my: 1 }}
                                         color="info"
                                         label={
                                             <Typography variant="body1">

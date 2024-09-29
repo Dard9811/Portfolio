@@ -1,3 +1,8 @@
+/* 
+    File name: Home.jsx
+    Author: Daniel Auguto Ramirez Duenas
+    Student ID: 301352357
+ */
 import { Grid2, Typography, Zoom } from "@mui/material";
 
 const Home = ({ theme }) => {
