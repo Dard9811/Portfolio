@@ -20,6 +20,7 @@ const findOneUserById = async (req, res, next) => {
             return res.status(400).json({
                 error: "User not found",
             });
+        return res.status(200).json(user);
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -50,7 +51,8 @@ const update = async (req, res) => {
         user.name = req.body?.name || user.name;
         user.email = req.body?.email || user.email;
         user.password = req.body?.password || user.password;
-        await user.save();
+        const updatedUser = await user.save();
+        return res.status(200).json(updatedUser);
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -73,7 +75,7 @@ const removeById = async (req, res) => {
     }
 };
 
-const removeAll = async () => {
+const removeAll = async (req, res) => {
     try {
         await User.deleteMany();
         return res.status(200).json({

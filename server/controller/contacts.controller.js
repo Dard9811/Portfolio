@@ -20,6 +20,7 @@ const findOneContactById = async (req, res, next) => {
             return res.status(400).json({
                 error: "Contact not found",
             });
+        return res.status(200).json(contact);
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -33,7 +34,7 @@ const create = async (req, res) => {
         const contact = new Contact(req.body);
         await contact.save();
         return res.status(200).json({
-            message: "Succesfully signed up!",
+            message: "Contact succesfully created!",
         });
     } catch (error) {
         console.log(error);
@@ -50,7 +51,8 @@ const update = async (req, res) => {
         contact.firstname = req.body?.firstname || contact.firstname;
         contact.lastname = req.body?.lastname || contact.lastname;
         contact.email = req.body?.email || contact.email;
-        await contact.save();
+        const updatedContact = await contact.save();
+        return res.status(200).json(updatedContact);
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -73,7 +75,7 @@ const removeById = async (req, res) => {
     }
 };
 
-const removeAll = async () => {
+const removeAll = async (req, res) => {
     try {
         await Contact.deleteMany();
         return res.status(200).json({
